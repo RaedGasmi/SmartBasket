@@ -1,0 +1,14 @@
+{
+  "n_users": 20000,
+  "n_orders_prior": 310442,
+  "n_products_seen": 41248,
+  "n_interactions_prior": 3138128,
+  "n_user_product_pairs": 1294496,
+  "matrix_density": 0.0015691621411947246,
+  "basket_size_mean": 10.108580668852797,
+  "basket_size_median": 8.0,
+  "orders_per_user_mean": 15.5221,
+  "test_items_per_user_mean": 10.55125,
+  "test_items_already_in_user_history": 0.5971188247837934,
+  "test_items_never_seen_in_prior": 0.003070726217272835
+}

@@ -1,0 +1,47 @@
+{
+  "seed": 42,
+  "n_users_sampled": 20000,
+  "k": 10,
+  "results": {
+    "full": {
+      "popularity": {
+        "precision@10": 0.07158999999999863,
+        "recall@10": 0.06837122123520056,
+        "hit_rate@10": 0.4521,
+        "n_users_evaluated": 20000
+      },
+      "cooccurrence": {
+        "precision@10": 0.2528099999999974,
+        "recall@10": 0.30588554503266197,
+        "hit_rate@10": 0.8395,
+        "n_users_evaluated": 20000
+      },
+      "als": {
+        "precision@10": 0.11820999999998862,
+        "recall@10": 0.145824911236714,
+        "hit_rate@10": 0.6317,
+        "n_users_evaluated": 20000
+      }
+    },
+    "discovery": {
+      "popularity": {
+        "precision@10": 0.01993863148204977,
+        "recall@10": 0.03824017590328626,
+        "hit_rate@10": 0.16735194845044493,
+        "n_users_evaluated": 16295
+      },
+      "cooccurrence": {
+        "precision@10": 0.021331696839521595,
+        "recall@10": 0.0439801660697836,
+        "hit_rate@10": 0.17459343356857931,
+        "n_users_evaluated": 16295
+      },
+      "als": {
+        "precision@10": 0.02497084995397436,
+        "recall@10": 0.05461086444804399,
+        "hit_rate@10": 0.20411169070266952,
+        "n_users_evaluated": 16295
+      }
+    }
+  }
+}
