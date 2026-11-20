@@ -1,0 +1,10 @@
+.git/
+.venv/
+.github/
+data/
+ml/
+android/
+docs/
+**/__pycache__/
+**/.pytest_cache/
+*.pkl
