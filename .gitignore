@@ -1,0 +1,25 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# IDE
+.idea/
+
+# Data (too large for git; downloaded from Kaggle)
+data/raw/
+data/processed/
+data/serving/
+data/smartbasket.db
+
+# Local DB
+*.db
+*.sqlite
+
+# Android
+android/**/build/
+android/**/.gradle/
+android/**/local.properties
+ml/models/*.pkl
