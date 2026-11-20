@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">SmartBasketSmartBasket</string>
+    <string name="app_name">SmartBasket</string>
+    <string name="search_hint">Search products</string>
+    <string name="product_details">%1$s · %2$s</string>
+    <string name="no_products">No products found</string>
+    <string name="error_network">Cannot reach the server. Is the API running?</string>
+    <string name="error_server">The server returned an error</string>
+    <string name="bought_together_title">Bought together</string>
+    <string name="no_bought_together">Not enough orders yet to show what is bought with this product</string>
+    <string name="for_you">For you</string>
+    <string name="buy_again">Buy again</string>
+    <string name="discover">Discover</string>
+    <plurals name="habits_orders">
+        <item quantity="one">%d order</item>
+        <item quantity="other">%d orders</item>
+    </plurals>
+    <string name="habits_orders_interval">%1$s · every %2$.1f days on average</string>
+    <string name="habits_categories">Favourite aisles: %1$s</string>
+    <string name="no_history">No shopping history yet</string>
+    <string name="popularity_note">No history for this user yet, so these are the most popular products.</string>
 </resources>
