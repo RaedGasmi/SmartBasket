@@ -21,13 +21,20 @@ flowchart LR
     A[Instacart CSV files<br/>data/raw] --> B[prepare_data<br/>sample users and split]
     B --> C[train<br/>popularity, co-occurrence, ALS]
     C --> D[evaluate<br/>precision, recall, hit-rate at 10]
-    C --> E[export_serving<br/>CSV files]
-    E --> F[(SQLite<br/>SQLAlchemy)]
+    C --> E[export_serving<br/>CSV files in data/serving]
+    E -->|load_db| F[(SQLite<br/>SQLAlchemy)]
     F --> G[FastAPI in Docker]
     G -->|JSON over HTTP| H[Android app<br/>Java, Retrofit]
 ```
 
-Recommendations are computed offline and stored in the database, so the API only runs read queries. Changing `DATABASE_URL` is the only switch for another database (PostgreSQL has not been tested yet, see [Limitations](#limitations)).
+Recommendations are computed offline and stored in the database, so the API only runs read queries. The CSV files in `data/serving/` are the only interface between the ML pipeline and the backend, and the backend never imports the ML code.
+
+The two recommendation lists come from different models:
+
+- **`reorder`:** the co-occurrence model, which may include products the user already bought.
+- **`discovery`:** the ALS model, restricted to products the user never bought.
+
+This matches the evaluation below, where co-occurrence is best in the `full` protocol and ALS is best in `discovery`. Changing `DATABASE_URL` is the only switch for another database (PostgreSQL has not been tested yet, see [Limitations](#limitations)).
 
 ## Model comparison
 
@@ -118,13 +125,11 @@ pip install -r ml/requirements.txt -r backend/requirements-dev.txt
 python -m ml.src.prepare_data
 python -m ml.src.eda
 python -m ml.src.train
-# TODO(raed): confirm the exact commands for the three steps below
-python -m ml.src.report
 python -m ml.src.export_serving
 python -m backend.scripts.load_db
 ```
 
-Training is reproducible: the seed is fixed and `train` writes `ml/results/metrics.json`.
+Training is reproducible: the seed is fixed, and the metrics, results tables and charts are written to `ml/results/`. `export_serving` writes the files the API serves to `data/serving/`, and `load_db` loads them into `data/smartbasket.db`.
 
 ### 3. Start the API
 
